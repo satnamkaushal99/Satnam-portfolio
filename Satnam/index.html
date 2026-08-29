@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Satnam Kaushal | Video Editor & Motion Graphics Artist</title>
+    <meta name="description" content="Satnam Kaushal - Professional Video Editor and Motion Graphics Designer specializing in YouTube, Instagram Reels, commercial ads and cinematic storytelling.">
+    <meta property="og:title" content="Satnam Kaushal | Video Editor & Motion Graphics Artist">
+    <meta property="og:description" content="Transforming raw footage into engaging videos that capture attention and tell compelling stories.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'aurora-green': '#00ffaa',
+                        'aurora-blue': '#00aaff',
+                        'aurora-purple': '#aa00ff',
+                        'aurora-pink': '#ff00aa',
+                        'dark-bg': '#0a0e1a',
+                        'dark-card': '#1a1f2e',
+                        'dark-border': '#2a2f3e'
+                    },
+                    animation: {
+                        'aurora': 'aurora 15s ease-in-out infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s ease-in-out infinite',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                        'glow': 'glow 2s ease-in-out infinite'
+                    },
+                    keyframes: {
+                        aurora: {
+                            '0%, 100%': { backgroundPosition: '0% 50%', backgroundSize: '200% 200%' },
+                            '50%': { backgroundPosition: '100% 50%', backgroundSize: '200% 200%' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        },
+                        glow: {
+                            '0%, 100%': { boxShadow: '0 0 5px rgba(0, 255, 170, 0.5), 0 0 20px rgba(0, 255, 170, 0.3)' },
+                            '50%': { boxShadow: '0 0 20px rgba(0, 170, 255, 0.8), 0 0 40px rgba(0, 170, 255, 0.4)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .aurora-bg {
+            background: linear-gradient(-45deg, #0a0e1a, #1a0033, #002244, #001a33);
+            background-size: 400% 400%;
+            animation: aurora 15s ease infinite;
+        }
+        .aurora-overlay {
+            position: fixed; top: 0; left: 0; right: 0; height: 100vh;
+            background:
+                radial-gradient(ellipse at top left, rgba(0, 255, 170, 0.15) 0%, transparent 40%),
+                radial-gradient(ellipse at top right, rgba(0, 170, 255, 0.15) 0%, transparent 40%),
+                radial-gradient(ellipse at bottom left, rgba(170, 0, 255, 0.1) 0%, transparent 40%),
+                radial-gradient(ellipse at bottom right, rgba(255, 0, 170, 0.1) 0%, transparent 40%);
+            pointer-events: none;
+            opacity: 0.7;
+        }
+        html { scroll-behavior: smooth; }
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #0a0e1a; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(to bottom, #00ffaa, #00aaff); border-radius: 5px; }
+        .gradient-text {
+            background: linear-gradient(135deg, #00ffaa 0%, #00aaff 50%, #aa00ff 100%);
+            -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .card-hover { transition: all 0.3s ease; border: 1px solid transparent; }
+        .card-hover:hover { border-color: #00ffaa; transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0, 255, 170, 0.2); }
+        @keyframes progressAnimation { 0% { width: 0%; } }
+        .progress-bar { animation: progressAnimation 2s ease-out forwards; }
+        .play-badge {
+            position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+            background: rgba(10,14,26,0.35); opacity: 0; transition: opacity .3s ease;
+        }
+        .group:hover .play-badge { opacity: 1; }
+    </style>
+</head>
+<body class="bg-dark-bg text-gray-200 aurora-bg">
+    <div class="aurora-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-dark-bg/90 backdrop-blur-md border-b border-dark-border z-50">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold gradient-text">Satnam Kaushal</div>
+                <ul class="hidden md:flex space-x-8">
+                    <li><a href="#home" class="hover:text-aurora-green transition">Home</a></li>
+                    <li><a href="#about" class="hover:text-aurora-green transition">About</a></li>
+                    <li><a href="#skills" class="hover:text-aurora-green transition">Skills</a></li>
+                    <li><a href="#services" class="hover:text-aurora-green transition">Services</a></li>
+                    <li><a href="#portfolio" class="hover:text-aurora-green transition">Portfolio</a></li>
+                    <li><a href="#why" class="hover:text-aurora-green transition">Why Me</a></li>
+                    <li><a href="#contact" class="hover:text-aurora-green transition">Contact</a></li>
+                </ul>
+                <button class="md:hidden" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+            <div id="mobileMenu" class="hidden md:hidden mt-4 space-y-2">
+                <a href="#home" class="block py-2 hover:text-aurora-green">Home</a>
+                <a href="#about" class="block py-2 hover:text-aurora-green">About</a>
+                <a href="#skills" class="block py-2 hover:text-aurora-green">Skills</a>
+                <a href="#services" class="block py-2 hover:text-aurora-green">Services</a>
+                <a href="#portfolio" class="block py-2 hover:text-aurora-green">Portfolio</a>
+                <a href="#why" class="block py-2 hover:text-aurora-green">Why Me</a>
+                <a href="#contact" class="block py-2 hover:text-aurora-green">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20 relative">
+        <div class="container mx-auto px-6 text-center z-10">
+            <div class="animate-slide-up">
+                <h1 class="text-5xl md:text-7xl font-bold mb-4">
+                    Hello, I'm <span class="gradient-text">Satnam Kaushal</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-400 mb-8">Video Editor | Motion Graphics Designer | Content Creator</p>
+                <p class="text-lg text-gray-500 max-w-2xl mx-auto mb-12">
+                    Transforming raw footage into engaging videos that capture attention, boost engagement, and tell compelling stories. From YouTube videos and social media reels to commercial advertisements and motion graphics, I create professional content that helps brands and creators stand out.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#portfolio" class="px-8 py-3 bg-gradient-to-r from-aurora-green to-aurora-blue rounded-full text-dark-bg font-semibold hover:shadow-lg hover:shadow-aurora-green/50 transition transform hover:scale-105">
+                        View My Work
+                    </a>
+                    <!-- <a href="#contact" class="px-8 py-3 border-2 border-aurora-green rounded-full hover:bg-aurora-green hover:text-dark-bg transition transform hover:scale-105">
+                        Hire Me
+                    </a> -->
+
+                                        <a href="Satnam resume.pdf"
+                    download
+                    class="px-8 py-3 border-2 border-aurora-green rounded-full hover:bg-aurora-green hover:text-dark-bg transition transform hover:scale-105">
+                    Download Resume
+                    </a>
+                </div>
+                <div class="mt-12 flex justify-center space-x-6">
+                    <a href="https://www.instagram.com/satnamkaushal.99?igsh=MTl2Nm5yb2RrNjMwdg==" target="_blank" class="text-2xl hover:text-aurora-pink transition"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/satnam-kaushal-3b0a46382/" target="_blank" class="text-2xl hover:text-aurora-blue transition"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:satnamkaushal99@gmail.com" class="text-2xl hover:text-aurora-green transition"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute w-2 h-2 bg-aurora-green rounded-full animate-float" style="top: 20%; left: 10%;"></div>
+            <div class="absolute w-2 h-2 bg-aurora-blue rounded-full animate-float" style="top: 60%; left: 80%; animation-delay: 1s;"></div>
+            <div class="absolute w-2 h-2 bg-aurora-purple rounded-full animate-float" style="top: 40%; left: 60%; animation-delay: 2s;"></div>
+            <div class="absolute w-2 h-2 bg-aurora-pink rounded-full animate-float" style="top: 80%; left: 30%; animation-delay: 3s;"></div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-20 relative">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 gradient-text">About Me</h2>
+            <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <p class="text-gray-400 leading-relaxed">
+                        Hello, I'm Satnam Kaushal, a passionate Video Editor and Motion Graphics Artist based in Jalandhar, Punjab. I specialize in creating high-quality video content for businesses, content creators, influencers, and brands.
+                    </p>
+                    <p class="text-gray-400 leading-relaxed">
+                        My expertise includes video editing, color grading, motion graphics, sound design, and visual storytelling. Whether it's a short-form reel, YouTube video, promotional ad, or cinematic project, I focus on delivering visually appealing content that connects with audiences and achieves results.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 pt-4">
+                        <div class="bg-dark-card p-4 rounded-lg border border-dark-border">
+                            <div class="text-3xl font-bold text-aurora-green">500+</div>
+                            <div class="text-sm text-gray-400">Videos Edited</div>
+                        </div>
+                        <div class="bg-dark-card p-4 rounded-lg border border-dark-border">
+                            <div class="text-3xl font-bold text-aurora-blue">100+</div>
+                            <div class="text-sm text-gray-400">Happy Clients</div>
+                        </div>
+                        <div class="bg-dark-card p-4 rounded-lg border border-dark-border">
+                            <div class="text-3xl font-bold text-aurora-purple">6+</div>
+                            <div class="text-sm text-gray-400">Years Experience</div>
+                        </div>
+                        <div class="bg-dark-card p-4 rounded-lg border border-dark-border">
+                            <div class="text-3xl font-bold text-aurora-pink">5M+</div>
+                            <div class="text-sm text-gray-400">Views Generated</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <!-- <div class="w-80 h-80 mx-auto rounded-full bg-gradient-to-br from-aurora-green via-aurora-blue to-aurora-purple p-1">
+                        <div class="w-full h-full rounded-full bg-dark-bg flex items-center justify-center overflow-hidden">
+                            <i class="fas fa-clapperboard text-8xl text-aurora-green/70"></i>
+                        </div> -->
+                        <div class="w-80 h-80 mx-auto rounded-full bg-gradient-to-br from-aurora-green via-aurora-blue to-aurora-purple p-1">
+    <div class="w-full h-full rounded-full bg-dark-bg flex items-center justify-center overflow-hidden">
+        <img src="satnamimg.jpeg"
+             alt="Satnam"
+             class="w-full h-full object-cover rounded-full">
+    </div>
+</div>
+                    </div>
+                    <p class="text-center text-xs text-gray-500 mt-4">Add your photo here — replace the icon block with an &lt;img&gt; tag</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="py-20 bg-dark-card/30">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 gradient-text">Skills</h2>
+            <div class="max-w-4xl mx-auto space-y-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4 text-aurora-green">Editing Software</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-2"><span>Adobe Premiere Pro</span><span>95%</span></div>
+                            <div class="w-full bg-dark-card rounded-full h-2">
+                                <div class="bg-gradient-to-r from-aurora-green to-aurora-blue h-2 rounded-full progress-bar" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2"><span>Adobe After Effects</span><span>90%</span></div>
+                            <div class="w-full bg-dark-card rounded-full h-2">
+                                <div class="bg-gradient-to-r from-aurora-blue to-aurora-purple h-2 rounded-full progress-bar" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2"><span>DaVinci Resolve</span><span>85%</span></div>
+                            <div class="w-full bg-dark-card rounded-full h-2">
+                                <div class="bg-gradient-to-r from-aurora-purple to-aurora-pink h-2 rounded-full progress-bar" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2"><span>CapCut Pro</span><span>90%</span></div>
+                            <div class="w-full bg-dark-card rounded-full h-2">
+                                <div class="bg-gradient-to-r from-aurora-pink to-aurora-green h-2 rounded-full progress-bar" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-semibold mb-4 text-aurora-blue">Areas of Expertise</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div class="bg-dark-card p-4 rounded-lg text-center card-hover">
+                            <i class="fas fa-wand-magic-sparkles text-2xl mb-2 text-aurora-green"></i>
+                            <p class="text-sm">Motion Graphics</p>
+                        </div>
+                        <div class="bg-dark-card p-4 rounded-lg text-center card-hover">
+                            <i class="fas fa-film text-2xl mb-2 text-aurora-blue"></i>
+                            <p class="text-sm">Cinematic Editing</p>
+                        </div>
+                        <div class="bg-dark-card p-4 rounded-lg text-center card-hover">
+                            <i class="fas fa-palette text-2xl mb-2 text-aurora-purple"></i>
+                            <p class="text-sm">Color Grading</p>
+                        </div>
+                        <div class="bg-dark-card p-4 rounded-lg text-center card-hover">
+                            <i class="fas fa-volume-high text-2xl mb-2 text-aurora-pink"></i>
+                            <p class="text-sm">Sound Design</p>
+                        </div>
+                        <div class="bg-dark-card p-4 rounded-lg text-center card-hover">
+                            <i class="fas fa-font text-2xl mb-2 text-aurora-green"></i>
+                            <p class="text-sm">Text Animation</p>
+                        </div>
+                       
+                                            <div class="bg-dark-card p-4 rounded-lg text-center card-hover">
+                        <i class="fa-solid fa-wand-magic-sparkles text-2xl mb-2 text-aurora-blue"></i>
+                        <p class="text-sm">Visual Effects</p>
+                    </div>
+                        <div class="bg-dark-card p-4 rounded-lg text-center card-hover">
+                            <i class="fas fa-mobile-screen text-2xl mb-2 text-aurora-purple"></i>
+                            <p class="text-sm">Social Media Editing</p>
+                        </div>
+                        <div class="bg-dark-card p-4 rounded-lg text-center card-hover">
+                            <i class="fas fa-podcast text-2xl mb-2 text-aurora-pink"></i>
+                            <p class="text-sm">Podcast Editing</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 gradient-text">Services</h2>
+            <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+                <div class="bg-dark-card p-6 rounded-lg card-hover text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-aurora-green to-aurora-blue flex items-center justify-center">
+                        <i class="fab fa-youtube text-2xl text-dark-bg"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">YouTube Video Editing</h3>
+                    <p class="text-gray-400">Engaging long-form edits with pacing, transitions, and hooks that keep viewers watching.</p>
+                </div>
+                <div class="bg-dark-card p-6 rounded-lg card-hover text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-aurora-blue to-aurora-purple flex items-center justify-center">
+                        <i class="fas fa-mobile-alt text-2xl text-dark-bg"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Reels & Shorts Editing</h3>
+                    <p class="text-gray-400">Instagram Reels, YouTube Shorts and TikTok edits built for retention and shares.</p>
+                </div>
+                <div class="bg-dark-card p-6 rounded-lg card-hover text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-aurora-purple to-aurora-pink flex items-center justify-center">
+                        <i class="fas fa-wand-magic-sparkles text-2xl text-dark-bg"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Motion Graphics Design</h3>
+                    <p class="text-gray-400">Custom animated titles, lower thirds, and graphic elements that elevate your brand.</p>
+                </div>
+                <div class="bg-dark-card p-6 rounded-lg card-hover text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-aurora-pink to-aurora-green flex items-center justify-center">
+                        <i class="fas fa-bullhorn text-2xl text-dark-bg"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Commercial Ad Editing</h3>
+                    <p class="text-gray-400">Polished promotional videos and ads built to convert viewers into customers.</p>
+                </div>
+                <div class="bg-dark-card p-6 rounded-lg card-hover text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-aurora-green to-aurora-purple flex items-center justify-center">
+                        <i class="fas fa-palette text-2xl text-dark-bg"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Color Grading</h3>
+                    <p class="text-gray-400">Cinematic color correction and grading that gives footage a consistent, premium look.</p>
+                </div>
+                <div class="bg-dark-card p-6 rounded-lg card-hover text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-aurora-blue to-aurora-pink flex items-center justify-center">
+                        <i class="fas fa-building text-2xl text-dark-bg"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Corporate Video Editing</h3>
+                    <p class="text-gray-400">Clean, professional edits for corporate, training, and brand storytelling videos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio -->
+    <!-- <section id="portfolio" class="py-20 bg-dark-card/30">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 gradient-text">Portfolio</h2>
+            <p class="text-center text-gray-500 max-w-2xl mx-auto -mt-8 mb-12 text-sm">
+               Browse some of my featured video editing projects, including YouTube videos, reels, commercials, and cinematic edits.
+            </p>
+            <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+                <div class="bg-dark-card rounded-lg overflow-hidden card-hover group">
+                    <div class="h-48 bg-gradient-to-br from-aurora-green to-aurora-blue flex items-center justify-center relative">
+                        <i class="fas fa-clapperboard text-5xl text-dark-bg/80"></i>
+                        <div class="play-badge"><i class="fas fa-play-circle text-4xl text-white"></i></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">YouTube Video Edit</h3>
+                        <p class="text-gray-400 mb-4">Long-form YouTube edit with dynamic pacing, sound design, and custom text animation.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-aurora-green/20 text-aurora-green rounded text-xs">Premiere Pro</span>
+                            <span class="px-2 py-1 bg-aurora-blue/20 text-aurora-blue rounded text-xs">Color Grading</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-dark-card rounded-lg overflow-hidden card-hover group">
+                    <div class="h-48 bg-gradient-to-br from-aurora-blue to-aurora-purple flex items-center justify-center relative">
+                        <i class="fas fa-mobile-screen text-5xl text-dark-bg/80"></i>
+                        <div class="play-badge"><i class="fas fa-play-circle text-4xl text-white"></i></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Instagram Reel</h3>
+                        <p class="text-gray-400 mb-4">High-retention short-form edit with trending transitions and motion text.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-aurora-purple/20 text-aurora-purple rounded text-xs">CapCut Pro</span>
+                            <span class="px-2 py-1 bg-aurora-pink/20 text-aurora-pink rounded text-xs">Sound Design</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-dark-card rounded-lg overflow-hidden card-hover group">
+                    <div class="h-48 bg-gradient-to-br from-aurora-purple to-aurora-pink flex items-center justify-center relative">
+                        <i class="fas fa-bullhorn text-5xl text-dark-bg/80"></i>
+                        <div class="play-badge"><i class="fas fa-play-circle text-4xl text-white"></i></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Commercial Ad</h3>
+                        <p class="text-gray-400 mb-4">Brand promo video with motion graphics, custom titles, and cinematic color grade.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-aurora-green/20 text-aurora-green rounded text-xs">After Effects</span>
+                            <span class="px-2 py-1 bg-aurora-blue/20 text-aurora-blue rounded text-xs">Motion Graphics</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+  <section id="portfolio">
+      <h2 class="text-4xl font-bold text-center mb-12 gradient-text">Portfolio</h2>
+<div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+  
+      
+
+    <!-- Card 1 -->
+    <div class="bg-dark-card rounded-lg overflow-hidden card-hover group">
+        <a href="https://youtube.com/shorts/LoSu0CFxGT0?si=GYpbQAgJteG6JlbJ" target="_blank">
+            <div class="relative h-48 overflow-hidden">
+                <img src="porimag.png" alt="YouTube Video" class="w-full h-full object-cover">
+                <div class="play-badge">
+                    <i class="fas fa-play-circle text-4xl text-white"></i>
+                </div>
+            </div>
+        </a>
+
+        <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">YouTube Video Edit</h3>
+            <p class="text-gray-400 mb-4">
+                Long-form YouTube edit with dynamic pacing, sound design, and custom text animation.
+            </p>
+
+            <div class="flex flex-wrap gap-2">
+                <span class="px-2 py-1 bg-aurora-green/20 text-aurora-green rounded text-xs">Premiere Pro</span>
+                <span class="px-2 py-1 bg-aurora-blue/20 text-aurora-blue rounded text-xs">Color Grading</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="bg-dark-card rounded-lg overflow-hidden card-hover group">
+        <a href="https://www.instagram.com/reel/DTDDRQRElvx" target="_blank">
+            <div class="relative h-48 overflow-hidden">
+                <img src="instaimg.png" alt="Instagram Reel" class="w-full h-full object-cover">
+                <div class="play-badge">
+                    <i class="fas fa-play-circle text-4xl text-white"></i>
+                </div>
+            </div>
+        </a>
+
+        <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">Instagram Reel</h3>
+            <p class="text-gray-400 mb-4">
+                High-retention short-form edit with trending transitions and motion text.
+            </p>
+
+            <div class="flex flex-wrap gap-2">
+                <span class="px-2 py-1 bg-aurora-purple/20 text-aurora-purple rounded text-xs">Premiere Pro</span>
+                <span class="px-2 py-1 bg-aurora-pink/20 text-aurora-pink rounded text-xs">Sound Design</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="bg-dark-card rounded-lg overflow-hidden card-hover group">
+        <a href="https://www.instagram.com/reel/DbfjfHik9JE/?igsh=MW9hemE2MmVqNmpoOA==&igsi=MW9hemE2MmVqNmpoOA==" target="_blank">
+            <div class="relative h-48 overflow-hidden">
+                <img src="comerical.png" alt="Commercial Ad" class="w-full h-full object-cover">
+                <div class="play-badge">
+                    <i class="fas fa-play-circle text-4xl text-white"></i>
+                </div>
+            </div>
+        </a>
+
+        <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">Commercial Ad</h3>
+            <p class="text-gray-400 mb-4">
+                Brand promo video with motion graphics, custom titles, and cinematic color grade.
+            </p>
+
+            <div class="flex flex-wrap gap-2">
+                <span class="px-2 py-1 bg-aurora-green/20 text-aurora-green rounded text-xs">After Effects</span>
+                <span class="px-2 py-1 bg-aurora-blue/20 text-aurora-blue rounded text-xs">Motion Graphics</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+</section>
+    <!-- Why Work With Me -->
+    <section id="why" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 gradient-text">Why Work With Me?</h2>
+            <div class="max-w-5xl mx-auto grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <div class="bg-dark-card p-5 rounded-lg card-hover flex items-center space-x-3">
+                    <i class="fas fa-check-circle text-aurora-green text-xl"></i>
+                    <span>Professional Quality Output</span>
+                </div>
+                <div class="bg-dark-card p-5 rounded-lg card-hover flex items-center space-x-3">
+                    <i class="fas fa-check-circle text-aurora-blue text-xl"></i>
+                    <span>Fast Turnaround Time</span>
+                </div>
+                <div class="bg-dark-card p-5 rounded-lg card-hover flex items-center space-x-3">
+                    <i class="fas fa-check-circle text-aurora-purple text-xl"></i>
+                    <span>Creative Storytelling</span>
+                </div>
+                <div class="bg-dark-card p-5 rounded-lg card-hover flex items-center space-x-3">
+                    <i class="fas fa-check-circle text-aurora-pink text-xl"></i>
+                    <span>Attention to Detail</span>
+                </div>
+                <div class="bg-dark-card p-5 rounded-lg card-hover flex items-center space-x-3">
+                    <i class="fas fa-check-circle text-aurora-green text-xl"></i>
+                    <span>Client-Focused Approach</span>
+                </div>
+                <div class="bg-dark-card p-5 rounded-lg card-hover flex items-center space-x-3">
+                    <i class="fas fa-check-circle text-aurora-blue text-xl"></i>
+                    <span>High-Engagement Editing</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-20 bg-dark-card/30">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 gradient-text">Client Testimonials</h2>
+            <p class="text-center text-gray-500 max-w-2xl mx-auto -mt-8 mb-12 text-sm">
+               Our clients' success and satisfaction speak for the quality of our work.
+            </p>
+            <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+                <div class="bg-dark-card p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-aurora-green to-aurora-blue flex items-center justify-center text-xl font-bold text-dark-bg">JD</div>
+                        <div class="ml-4">
+                            <h4 class="font-semibold">Ankur Narula Ministries</h4>
+                            <p class="text-sm text-gray-400">Content Creator</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 italic">"Great editing experience with a clean, professional style. The final video exceeded expectations."</p>
+                    <div class="mt-4 text-aurora-green">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <div class="bg-dark-card p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-aurora-blue to-aurora-purple flex items-center justify-center text-xl font-bold text-dark-bg">SM</div>
+                        <div class="ml-4">
+                            <h4 class="font-semibold">Premier Webtech</h4>
+                            <p class="text-sm text-gray-400">Brand Manager</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 italic">"Very professional work with fast delivery and smooth communication throughout the project."</p>
+                    <div class="mt-4 text-aurora-blue">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Featured Video Section -->
+<section id="featured-video" class="py-20 relative">
+
+    <div class="container mx-auto px-6">
+
+        <!-- Heading -->
+        <div class="text-center mb-12">
+
+            <span class="text-aurora-green text-sm font-semibold uppercase tracking-widest">
+                Featured Work
+            </span>
+
+            <h2 class="text-4xl md:text-5xl font-bold mt-3 gradient-text">
+                After Effects Motion Graphics
+            </h2>
+
+            <p class="text-gray-400 max-w-2xl mx-auto mt-4">
+                Explore my latest After Effects motion graphics project,
+                featuring creative animation, visual effects,
+                transitions, and cinematic design.
+            </p>
+
+        </div>
+
+
+        <!-- Video -->
+        <div class="max-w-5xl mx-auto">
+
+            <div class="video-wrapper">
+
+                <video
+                    class="featured-video"
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                    preload="auto">
+
+                    <source src="Snomow.mp4" type="video/mp4">
+
+                    Your browser does not support the video tag.
+
+                </video>
+
+                <!-- Glow Effect -->
+                <div class="video-glow"></div>
+
+            </div>
+
+
+            <!-- Video Title -->
+            <div class="text-center mt-8">
+
+                <!-- <h3 class="text-2xl md:text-3xl font-bold text-white mb-3">
+                    After Effects Motion Graphics
+                </h3> -->
+
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    A creative motion graphics showcase highlighting
+                    animation, transitions, visual effects, and
+                    professional After Effects editing.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Video CSS -->
+<style>
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    background: #000;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+}
+
+/* Landscape Video */
+.featured-video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    background: #000;
+    position: relative;
+    z-index: 2;
+}
+
+/* Glow */
+.video-glow {
+    position: absolute;
+    inset: -8px;
+    z-index: 1;
+    background: linear-gradient(
+        90deg,
+        rgba(32, 230, 189, 0.35),
+        rgba(80, 140, 255, 0.30),
+        rgba(170, 80, 255, 0.30)
+    );
+    filter: blur(30px);
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+
+/* Desktop */
+@media (min-width: 768px) {
+
+    .video-wrapper {
+        aspect-ratio: 16 / 9;
+        border-radius: 20px;
+    }
+
+}
+
+
+/* Mobile */
+@media (max-width: 767px) {
+
+    #featured-video {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    #featured-video .container {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    #featured-video h2 {
+        font-size: 32px;
+        line-height: 1.2;
+    }
+
+    #featured-video p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .video-wrapper {
+        aspect-ratio: 16 / 9;
+        border-radius: 12px;
+    }
+
+}
+
+</style>
+
+
+    <!-- Contact -->
+    <section id="contact" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 gradient-text">Get In Touch</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-aurora-green to-aurora-blue flex items-center justify-center">
+                                <i class="fas fa-envelope text-dark-bg"></i>
+                            </div>
+                            <div>
+                                <p class="text-gray-400">Email</p>
+                                <p>satnamkaushal99@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-aurora-blue to-aurora-purple flex items-center justify-center">
+                                <i class="fas fa-phone text-dark-bg"></i>
+                            </div>
+                            <div>
+                                <p class="text-gray-400">Phone</p>
+                                <p>7018966004 / 7658014572</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-aurora-purple to-aurora-pink flex items-center justify-center">
+                                <i class="fas fa-map-marker-alt text-dark-bg"></i>
+                            </div>
+                            <div>
+                                <p class="text-gray-400">Location</p>
+                                <p>Jalandhar, Punjab, India</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4 pt-2">
+                            <a href="https://www.instagram.com/satnamkaushal.99?igsh=MTl2Nm5yb2RrNjMwdg==" target="_blank" class="text-2xl hover:text-aurora-pink transition"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/in/satnam-kaushal-3b0a46382/" target="_blank" class="text-2xl hover:text-aurora-blue transition"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+
+                    <form action="https://formspree.io/f/mpparkvy" method="POST" class="space-y-4">
+                        <input type="text" name="name" placeholder="Your Name" required
+                            class="w-full px-4 py-3 bg-dark-card border border-dark-border rounded-lg">
+                        <input type="email" name="email" placeholder="Your Email" required
+                            class="w-full px-4 py-3 bg-dark-card border border-dark-border rounded-lg">
+                        <textarea name="message" placeholder="Your Message" rows="4" required
+                            class="w-full px-4 py-3 bg-dark-card border border-dark-border rounded-lg"></textarea>
+                        <button type="submit"
+                            class="w-full px-8 py-3 bg-gradient-to-r from-aurora-green to-aurora-blue rounded-lg text-dark-bg font-semibold">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+                <!-- <p class="text-center text-xs text-gray-500">Contact form uses a Formspree endpoint from the original template — replace with your own Formspree form ID before publishing.</p> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-dark-border">
+        <div class="container mx-auto px-6 text-center">
+            <div class="mb-4">
+                <a href="https://www.instagram.com/satnamkaushal.99?igsh=MTl2Nm5yb2RrNjMwdg==" target="_blank" class="text-2xl mx-2 hover:text-aurora-pink transition"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/satnam-kaushal-3b0a46382/" target="_blank" class="text-2xl mx-2 hover:text-aurora-blue transition"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <p class="text-gray-400">© 2026 Satnam Kaushal. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        }
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobileMenu').classList.add('hidden');
+            });
+        });
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -100px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('animate-slide-up');
+            });
+        }, observerOptions);
+        document.querySelectorAll('section').forEach(section => observer.observe(section));
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+    </script>
+</body>
+</html>
